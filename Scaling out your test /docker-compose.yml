@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  k6:
+    image: grafana/k6:latest
+    volumes:
+      - ./test.js:/scripts/test.js
+    entrypoint: ["k6", "run", "/scripts/test.js"]
+    deploy:
+      replicas: 3 # จำนวนอินสแตนซ์ที่ต้องการ
