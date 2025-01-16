@@ -1,0 +1,30 @@
+การใช้งาน Built-in Metrics
+
+    http_reqs
+        k6 จะนับจำนวนคำขอ HTTP ทั้งหมดที่ส่ง
+    http_req_duration
+        แสดงเวลารวมตั้งแต่เริ่มคำขอจนถึงการตอบกลับ (รวม DNS, TCP, Processing Time)
+    http_req_failed
+        แสดงเปอร์เซ็นต์คำขอที่ล้มเหลว (หากสถานะ HTTP ไม่ใช่ 2xx หรือ 3xx)
+    vus และ iterations
+        แสดงจำนวน Virtual Users ปัจจุบันและจำนวน Iterations ที่เสร็จสมบูรณ์
+
+
+คำอธิบายผลลัพธ์
+
+    http_reqs
+        จำนวนคำขอ HTTP ทั้งหมดคือ 50 (10 คำขอ/วินาที)
+    http_req_duration
+        Response Time เฉลี่ย 120ms, สูงสุด 200ms, 95% ของคำขอใช้เวลาต่ำกว่า 180ms
+    http_req_failed
+        ไม่มีคำขอที่ล้มเหลว (0%)
+    vus และ iterations
+        มี 5 VUs และ Iterations รวม 50 ครั้ง
+
+สรุป
+
+Built-in Metrics ของ k6 ช่วยให้คุณติดตาม:
+
+    ประสิทธิภาพการตอบสนองของเซิร์ฟเวอร์ (Response Time)
+    ความสำเร็จและความล้มเหลวของคำขอ
+    การทำงานของ VUs และ Iterations ทั้งหมด

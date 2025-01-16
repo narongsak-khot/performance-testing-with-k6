@@ -1,0 +1,18 @@
+รายละเอียด
+
+    Executor:
+        executor: 'per-vu-iterations' ใช้สำหรับกำหนด Iterations ต่อ VU
+    จำนวน VUs:
+        vus: 5 หมายถึงมี Virtual Users ทั้งหมด 5 ตัวทำงานพร้อมกัน
+    จำนวน Iterations ต่อ VU:
+        iterations: 10 หมายถึงแต่ละ VU จะทำงานทั้งหมด 10 รอบ
+    เวลาสูงสุด:
+        maxDuration: '2m' ระยะเวลาสูงสุดที่สามารถรันการทดสอบได้
+
+ผลลัพธ์ที่คาดหวัง
+
+    Iterations ทั้งหมดที่รันได้ = VUs * Iterations (ในที่นี้คือ 5 * 10 = 50 Iterations)
+    คุณจะได้ข้อมูล:
+        http_req_duration: เวลาที่ใช้ในการตอบกลับคำขอ
+        http_req_failed: เปอร์เซ็นต์ของคำขอที่ล้มเหลว
+        iterations: จำนวนคำขอที่ดำเนินการสำเร็จ

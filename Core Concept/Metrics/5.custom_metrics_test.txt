@@ -1,0 +1,23 @@
+การอธิบายโค้ด
+
+    Counter (errors):
+        ใช้สำหรับนับจำนวนข้อผิดพลาดทั้งหมด (เมื่อสถานะ HTTP ไม่ใช่ 200)
+        คำสั่ง: errorCounter.add(1)
+
+    Gauge (response_time):
+        ใช้สำหรับวัดค่า Response Time ปัจจุบันของคำขอ
+        คำสั่ง: responseTimeGauge.add(res.timings.duration)
+
+    Rate (success_rate):
+        ใช้สำหรับคำนวณอัตราความสำเร็จ (สถานะ HTTP เท่ากับ 200)
+        คำสั่ง: successRate.add(res.status === 200)
+
+    Trend (response_time_trend):
+        ใช้สำหรับบันทึกค่า Response Time เพื่อวิเคราะห์เชิงสถิติ
+        คำสั่ง: responseTimeTrend.add(res.timings.duration)
+
+เหมาะสำหรับ:
+
+    การวัดค่าที่เฉพาะเจาะจงกับระบบที่คุณทดสอบ
+    การวิเคราะห์ข้อผิดพลาดหรืออัตราความสำเร็จ
+    การเก็บข้อมูลเพื่อการวิเคราะห์ทางสถิติอย่างละเอียด

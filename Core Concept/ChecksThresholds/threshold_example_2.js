@@ -1,19 +1,23 @@
-//ตัวอย่าง: Thresholds แบบหลายเงื่อนไข
-import http from "k6/http";
+//Thresholds สำหรับ Custom Metrics
 
-export const options = {
-  vus: 5,
-  duration: "1m",
+import http from 'k6/http';
+import { Counter } from 'k6/metrics';
+
+// สร้าง Custom Metric
+let customErrorCount = new Counter('custom_errors');
+
+export let options = {
   thresholds: {
-    http_req_duration: [
-      "avg<150", // ค่าเฉลี่ยของเวลาตอบสนองต้องน้อยกว่า 150ms
-      "p(90)<200", // P90 ต้องน้อยกว่า 200ms
-      "max<300", // เวลาตอบสนองสูงสุดต้องน้อยกว่า 300ms
-    ],
-    http_req_failed: ["rate<0.01"], // อัตราคำขอล้มเหลวต้องน้อยกว่า 1%
+    // Threshold สำหรับ Custom Metric: ต้องไม่เกิน 10 ข้อผิดพลาด
+    custom_errors: ['count<10'],
   },
 };
 
-export default function() {
-  http.get("https://test-api.k6.io/public/crocodiles/");
+export default function () {
+  let res = http.get('https://test-api.k6.io/public/crocodiles/');
+
+  // เพิ่มจำนวนข้อผิดพลาดใน Custom Metric หากสถานะไม่ใช่ 200
+  if (res.status !== 200) {
+    customErrorCount.add(1);
+  }
 }

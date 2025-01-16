@@ -1,0 +1,10 @@
+รายละเอียดโค้ด
+
+    Executor:
+        executor: 'shared-iterations' ใช้สำหรับแบ่ง Iterations รวมให้ VUs ทั้งหมด
+    จำนวน VUs:
+        vus: 5 หมายถึงมี Virtual Users 5 คนทำงานพร้อมกัน
+    จำนวน Iterations รวม:
+        iterations: 50 หมายความว่า Iterations ทั้งหมด 50 รอบจะแชร์กันระหว่าง VUs
+    ระยะเวลาสูงสุด:
+        maxDuration: '1m' หาก Iterations ทั้งหมดไม่เสร็จใน 1 นาที การทดสอบจะหยุด

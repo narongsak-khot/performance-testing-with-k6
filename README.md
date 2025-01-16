@@ -83,7 +83,9 @@ k6 run --config test-config.json script.js
 ### **การแปลงไฟล์ HAR**
 แปลงไฟล์ HAR เป็นสคริปต์ k6:
 ```bash
-k6 convert input.har > script.js
+
+npm install -g har-to-k6
+har-to-k6 myfile.har -o loadtest.js
 ```
 
 ---

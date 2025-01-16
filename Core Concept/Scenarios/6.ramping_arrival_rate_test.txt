@@ -1,0 +1,14 @@
+รายละเอียดโค้ด
+
+    Executor:
+        executor: 'ramping-arrival-rate' ใช้เพื่อกำหนดการเพิ่มและลดจำนวนคำขอต่อวินาที
+    Start Rate:
+        startRate: 10 เริ่มต้นด้วย 10 คำขอต่อวินาที
+    Stages:
+        { duration: '1m', target: 50 } เพิ่มคำขอเป็น 50 ต่อวินาทีภายใน 1 นาที
+        { duration: '2m', target: 100 } เพิ่มต่อไปเป็น 100 ต่อวินาทีใน 2 นาที
+        { duration: '1m', target: 0 } ลดคำขอเป็น 0 ใน 1 นาที
+    Pre-allocated VUs:
+        preAllocatedVUs: 20 จำนวน VUs ที่จัดเตรียมไว้ล่วงหน้า
+    Max VUs:
+        maxVUs: 50 จำนวน VUs สูงสุดที่สามารถขยายได้

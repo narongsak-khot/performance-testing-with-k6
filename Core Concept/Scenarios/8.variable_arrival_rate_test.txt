@@ -1,0 +1,15 @@
+รายละเอียดโค้ด
+
+    Executor:
+        executor: 'variable-arrival-rate' ใช้สำหรับการส่งคำขอที่เปลี่ยนแปลงตาม stages
+    Time Unit:
+        timeUnit: '1s' ระบุว่า target คือจำนวนคำขอต่อวินาที
+    Stages:
+        { duration: '1m', target: 20 } ส่งคำขอ 20 คำขอต่อวินาทีใน 1 นาทีแรก
+        { duration: '2m', target: 50 } เพิ่มคำขอเป็น 50 ต่อวินาทีใน 2 นาทีถัดไป
+        { duration: '1m', target: 10 } ลดคำขอเป็น 10 ต่อวินาทีใน 1 นาที
+        { duration: '30s', target: 0 } ลดคำขอเป็น 0 ใน 30 วินาทีสุดท้าย
+    Pre-allocated VUs:
+        preAllocatedVUs: 20 จำนวน VUs ที่เตรียมไว้
+    Max VUs:
+        maxVUs: 50 จำนวน VUs สูงสุดที่สามารถขยายได้

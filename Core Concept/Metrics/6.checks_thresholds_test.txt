@@ -1,0 +1,13 @@
+การอธิบายโค้ด
+
+    Checks:
+        ใช้ฟังก์ชัน check เพื่อตรวจสอบ Response ตามเงื่อนไข
+        ตัวอย่าง:
+            status is 200: ตรวจสอบว่าสถานะ HTTP เป็น 200
+            response time < 200ms: ตรวจสอบว่า Response Time ต่ำกว่า 200ms
+
+    Thresholds:
+        ใช้ใน options.thresholds เพื่อกำหนดเกณฑ์มาตรฐาน
+        ตัวอย่าง:
+            http_req_duration: Response Time 95% ต้องต่ำกว่า 200ms (p(95)<200) และค่าเฉลี่ยต่ำกว่า 150ms (avg<150)
+            http_req_failed: อัตราคำขอล้มเหลวต้องน้อยกว่า 1% (rate<0.01)

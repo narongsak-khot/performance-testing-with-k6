@@ -1,0 +1,14 @@
+รายละเอียดโค้ด
+
+    Executor:
+        executor: 'constant-arrival-rate' ใช้เพื่อควบคุมจำนวนคำขอต่อหน่วยเวลาอย่างคงที่
+    Rate:
+        rate: 100 หมายความว่าจะส่งคำขอ 100 ครั้งต่อวินาที
+    Time Unit:
+        timeUnit: '1s' ระบุหน่วยเวลาสำหรับ rate
+    Duration:
+        duration: '1m' รันการทดสอบเป็นเวลา 1 นาที
+    Pre-allocated VUs:
+        preAllocatedVUs: 50 จำนวน VUs ที่จัดเตรียมไว้ล่วงหน้าเพื่อให้พร้อมสำหรับการทดสอบ
+    Max VUs:
+        maxVUs: 100 จำนวน VUs สูงสุดที่สามารถขยายได้หากโหลดเพิ่มขึ้น

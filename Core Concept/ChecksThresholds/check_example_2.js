@@ -1,22 +1,13 @@
-//ตัวอย่าง: ตรวจสอบเนื้อหาในคำตอบ
+//ตรวจสอบ Header และ Response Body
 
-import http from "k6/http";
-import { check, sleep } from "k6";
+import http from 'k6/http';
+import { check } from 'k6';
 
-export const options = {
-  vus: 5,
-  duration: "20s",
-};
+export default function () {
+  let res = http.get('https://test-api.k6.io/public/crocodiles/');
 
-export default function() {
-  const url = "https://test-api.k6.io/public/crocodiles/1/";
-  const res = http.get(url);
-
-  // ตรวจสอบว่าเนื้อหาในคำตอบถูกต้อง
   check(res, {
-    "status is 200": (r) => r.status === 200,
-    "response body contains crocodile": (r) => r.body.includes("crocodile"),
+    'content is JSON': (r) => r.headers['Content-Type'] === 'application/json', // ตรวจสอบ Header
+    'response contains crocodiles': (r) => r.body.includes('crocodiles'), // ตรวจสอบว่า Body มีคำว่า "crocodiles"
   });
-
-  sleep(1);
 }

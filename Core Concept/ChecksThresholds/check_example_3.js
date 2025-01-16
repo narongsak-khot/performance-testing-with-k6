@@ -1,24 +1,12 @@
-//ตัวอย่าง: ตรวจสอบหลายเงื่อนไข
+//ตรวจสอบข้อมูลใน JSON Response
+import http from 'k6/http';
+import { check } from 'k6';
 
-import http from "k6/http";
-import { check, sleep } from "k6";
+export default function () {
+  let res = http.get('https://test-api.k6.io/public/crocodiles/1/');
 
-export const options = {
-  vus: 10,
-  duration: "15s",
-};
-
-export default function() {
-  const url = "https://test-api.k6.io/public/crocodiles/";
-  const res = http.get(url);
-
-  // ตรวจสอบเงื่อนไขหลายแบบ
   check(res, {
-    "status is 200": (r) => r.status === 200,
-    "response time < 300ms": (r) => r.timings.duration < 300,
-    "response contains JSON": (r) =>
-      r.headers["Content-Type"].includes("application/json"),
+    'status is 200': (r) => r.status === 200,
+    'name is present': (r) => JSON.parse(r.body).name !== undefined, // ตรวจสอบว่า "name" มีอยู่ใน JSON
   });
-
-  sleep(1);
 }
