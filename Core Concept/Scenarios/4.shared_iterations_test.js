@@ -25,5 +25,4 @@ export default function() {
     console.error(`Request failed. Status: ${res.status}`);
   }
 
-  sleep(1); // พัก 1 วินาทีก่อนคำขอถัดไป
 }

@@ -2,7 +2,7 @@
 // และพฤติกรรมของ Virtual Users (VUs)
 
 import http from 'k6/http';
-import { check, sleep } from 'k6';
+import { check } from 'k6';
 
 export let options = {
   vus: 5, // จำนวน Virtual Users (VUs)
@@ -18,7 +18,4 @@ export default function () {
     'status is 200': (r) => r.status === 200,
     'response time < 200ms': (r) => r.timings.duration < 200,
   });
-
-  // พัก 1 วินาทีก่อนการทำคำขอครั้งถัดไป
-  sleep(1);
 }

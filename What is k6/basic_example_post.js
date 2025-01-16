@@ -20,6 +20,4 @@ export default function() {
     "response time < 500ms": (r) => r.timings.duration < 500,
   });
 
-  // พักการทำงาน 1 วินาที
-  sleep(1);
 }

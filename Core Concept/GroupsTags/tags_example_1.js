@@ -6,5 +6,5 @@ export default function() {
     tags: { endpoint: "list_crocodiles", method: "GET" },
   });
 
-  console.log(JSON.stringify(res.timings)); // ดูผลลัพธ์ Metrics พร้อม Tags
+  // ดูผลลัพธ์ Metrics พร้อม Tags
 }

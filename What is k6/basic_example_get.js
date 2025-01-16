@@ -18,7 +18,4 @@ export default function() {
     "status is 200": (r) => r.status === 200, // ตรวจสอบสถานะ HTTP ต้องเป็น 200
     "response time < 500ms": (r) => r.timings.duration < 500, // เวลาตอบสนองต้องน้อยกว่า 500ms
   });
-
-  // พักการทำงาน 1 วินาที
-  sleep(1);
 }

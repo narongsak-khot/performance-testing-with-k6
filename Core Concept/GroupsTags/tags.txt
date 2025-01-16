@@ -1,0 +1,2 @@
+k6 run --out csv=csv_output_1.csv tags_example_1.js
+k6 run --out csv=csv_output_2.csv tags_example_2.js

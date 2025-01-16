@@ -11,5 +11,4 @@ export default function() {
     "response time < 200ms": (r) => r.timings.duration < 200, // ตรวจสอบ Response Time
   });
 
-  sleep(1); // พัก 1 วินาทีก่อนคำขอถัดไป
 }

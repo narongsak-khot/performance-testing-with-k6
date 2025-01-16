@@ -17,6 +17,4 @@ export default function () {
     'content type is correct': (r) => r.headers['Content-Type'] === 'application/json',
     'body contains crocodiles': (r) => r.body.includes('crocodiles'),
   });
-
-  sleep(1);
 }

@@ -1,12 +1,17 @@
-//ตัวอย่าง 2: การใช้ http.setTags() เพิ่ม Tags ชั่วคราว
+//ตัวอย่าง 3: การใช้ Tags หลายคำขอ
+import http from 'k6/http';
+import { Counter } from 'k6/metrics';
 
-import http from "k6/http";
+// สร้าง Custom Metric
+const requestsWithTags = new Counter('requests_with_tags');
 
-export default function() {
-  // เพิ่ม Tags ชั่วคราว
-  http.setTags({ endpoint: "get_crocodile_by_id", method: "GET" });
+export default function () {
+  // เพิ่ม Tags ในคำขอ
+  const res = http.get('https://test-api.k6.io/public/crocodiles/', {
+    tags: { endpoint: 'list_crocodiles', method: 'GET' },
+  });
 
-  // ส่งคำขอ HTTP
-  const res = http.get("https://test-api.k6.io/public/crocodiles/1/");
-  console.log(`Response time: ${res.timings.duration} ms`);
+  // บันทึก Tags ลงใน Custom Metric
+  requestsWithTags.add(1, { endpoint: 'list_crocodiles', method: 'GET' });
+  console.log(`Status: ${res.status}`);
 }

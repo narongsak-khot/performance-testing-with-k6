@@ -20,6 +20,4 @@ export default function () {
   } else {
     console.error(`VU ${__VU} failed Iteration ${__ITER}.`);
   }
-
-  sleep(1); // พัก 1 วินาทีก่อนการทำคำขอครั้งถัดไป
 }

@@ -26,6 +26,4 @@ export default function() {
   if (res.status !== 200) {
     console.error(`Request failed. Status: ${res.status}`);
   }
-
-  sleep(1); // จำลองการพักระหว่างคำขอ (ถ้าจำเป็น)
 }

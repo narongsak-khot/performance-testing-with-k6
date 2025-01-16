@@ -29,7 +29,6 @@ export default function () {
     console.error('Check failed');
   }
 
-  sleep(1); // พัก 1 วินาทีก่อนคำขอครั้งถัดไป
 }
 
 //k6 run 6.checks_thresholds_test.js

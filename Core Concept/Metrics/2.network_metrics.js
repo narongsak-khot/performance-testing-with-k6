@@ -3,7 +3,7 @@
 // ซึ่งช่วยให้คุณเข้าใจการทำงานของระบบในระดับเครือข่ายได้ดียิ่งขึ้น
 
 import http from 'k6/http';
-import { check, sleep } from 'k6';
+import { check } from 'k6';
 
 export let options = {
   vus: 3, // จำนวน Virtual Users (VUs)
@@ -25,6 +25,4 @@ export default function () {
   console.log(`TLS Handshake: ${res.timings.tls_handshaking} ms`);
   console.log(`Time to First Byte (TTFB): ${res.timings.waiting} ms`);
   console.log(`Content Transfer Time: ${res.timings.receiving} ms`);
-
-  sleep(1); // พัก 1 วินาที
 }

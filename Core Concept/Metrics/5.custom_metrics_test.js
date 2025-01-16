@@ -33,6 +33,4 @@ export default function() {
 
   // บันทึก Response Time ลงใน Trend
   responseTimeTrend.add(res.timings.duration);
-
-  sleep(1); // พัก 1 วินาทีก่อนคำขอครั้งถัดไป
 }

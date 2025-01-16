@@ -21,6 +21,4 @@ export default function() {
   // แสดงข้อมูล VU Metrics
   console.log(`Current VU: ${__VU}`); // ID ของ VU ปัจจุบัน
   console.log(`Current Iteration: ${__ITER}`); // Iteration ของ VU ปัจจุบัน
-
-  sleep(1); // พัก 1 วินาทีก่อนทำคำขอครั้งถัดไป
 }

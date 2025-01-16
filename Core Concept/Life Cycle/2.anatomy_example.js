@@ -1,5 +1,5 @@
 import http from "k6/http";
-import { check, sleep } from "k6";
+import { check } from "k6";
 
 // Step 1: Initialization
 const BASE_URL = "https://test-api.k6.io";
@@ -44,8 +44,6 @@ export default function(data) {
     "Status is 200": (r) => r.status === 200,
     "Response contains data": (r) => r.json().length > 0,
   });
-
-  sleep(1); // จำลองการรอ 1 วินาที
 }
 
 // Step 4: Teardown

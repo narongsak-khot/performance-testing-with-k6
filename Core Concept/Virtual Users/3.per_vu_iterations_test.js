@@ -11,7 +11,7 @@ export let options = {
       executor: "per-vu-iterations", // ใช้ executor แบบ per-vu-iterations
       vus: 5, // จำนวน Virtual Users (VUs)
       iterations: 10, // จำนวน Iterations ต่อ VU
-      maxDuration: "2m", // เวลาสูงสุดที่สามารถรันได้
+      maxDuration: "30s", // เวลาสูงสุดที่สามารถรันได้
     },
   },
 };
@@ -24,6 +24,4 @@ export default function() {
   if (res.status !== 200) {
     console.error(`Request failed. Status: ${res.status}`);
   }
-
-  sleep(1); // พัก 1 วินาทีก่อนการทำคำขอครั้งถัดไป
 }
