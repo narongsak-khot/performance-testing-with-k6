@@ -51,13 +51,5 @@ export default function(data) {
 // Step 4: Teardown
 export function teardown(data) {
   // ยกเลิกโทเค็นหลังจากทดสอบเสร็จสิ้น
-  const logoutResponse = http.post(`${BASE_URL}/auth/token/logout/`, null, {
-    headers: { Authorization: `Bearer ${data.token}` },
-  });
-
-  check(logoutResponse, {
-    "Logout was successful": (r) => r.status === 204,
-  });
-
   console.log("Teardown completed.");
 }

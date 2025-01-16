@@ -1,0 +1,1 @@
+k6 run --out csv=output.csv csv-example.js
