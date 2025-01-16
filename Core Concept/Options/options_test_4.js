@@ -25,5 +25,4 @@ export let options = {
 
 export default function () {
     http.get('https://test-api.k6.io');
-    sleep(1);
 }

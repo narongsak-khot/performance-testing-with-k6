@@ -34,6 +34,6 @@ export default function() {
     check(res, {
       "status is 201": (r) => r.status === 201, // ตรวจสอบสถานะ HTTP
     });
-    sleep(1); // พัก 1 วินาที
+    
   });
 }

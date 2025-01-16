@@ -49,5 +49,21 @@ export default function(data) {
 // Step 4: Teardown
 export function teardown(data) {
   // ยกเลิกโทเค็นหลังจากทดสอบเสร็จสิ้น
+
+   // ใช้โทเค็นเพื่อเรียก API
+   const authHeaders = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${data.token}`,
+  };
+
+  // ดึงรายการจระเข้ (Crocodiles)
+  const response = http.get(`${BASE_URL}/my/crocodiles/`, {
+    headers: authHeaders,
+  });
+
+  check(response, {
+    "Logout was successful": (r) => r.status === 200,
+  });
+
   console.log("Teardown completed.");
 }

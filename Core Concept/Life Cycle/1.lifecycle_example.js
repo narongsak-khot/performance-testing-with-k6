@@ -4,7 +4,7 @@ import { sleep } from "k6";
 // กำหนด Options
 export const options = {
   vus: 5, // จำนวน Virtual Users
-  duration: "10s", // ระยะเวลาทดสอบ
+  duration: "5s", // ระยะเวลาทดสอบ
 };
 
 // 1. Initialization Stage (รันครั้งเดียวก่อนการทดสอบเริ่ม)
@@ -29,9 +29,6 @@ export default function(data) {
 
   // แสดงเวลาตอบสนอง
   console.log(`Response time for VU ${__VU}: ${res.timings.duration} ms`);
-
-  // พัก 1 วินาที
-  sleep(1);
 }
 
 // 4. Teardown Stage (รันครั้งเดียวหลัง Virtual Users เสร็จงานทั้งหมด)
